@@ -1,0 +1,22 @@
+{
+  "name": "shaker-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "analyze": "ANALYZE=true npm run build",
+    "dev": "next dev",
+    "dev:analyze": "ANALYZE=true next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@next/bundle-analyzer": "^9.2.2",
+    "next": "9.2.2",
+    "next-transpile-modules": "^3.0.2",
+    "react": "16.13.0",
+    "react-dom": "16.13.0"
+  },
+  "devDependencies": {
+    "lerna": "^3.20.2"
+  }
+}

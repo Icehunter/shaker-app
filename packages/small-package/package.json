@@ -1,0 +1,41 @@
+{
+  "name": "@icehunter/small-package",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "types": "types",
+    "dist": "dist",
+    "lib": "lib",
+    "src": "src"
+  },
+  "files": [
+    "types",
+    "lib",
+    "dist",
+    "src"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rimraf lib types && yarn build:ts && yarn build:types && rollup -c",
+    "build:ts": "tsc",
+    "build:types": "dts-bundle --name @icehunter/big-package --main types/index.d.ts --out ../lib/index.d.ts"
+  },
+  "author": "Ryan Wilson <syndicated.life@gmail.com> (https://syndicated.life/)",
+  "license": "ISC",
+  "devDependencies": {
+    "dts-bundle": "^0.7.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.0.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "tslib": "^1.11.1",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@icehunter/big-package": "^1.0.0"
+  }
+}

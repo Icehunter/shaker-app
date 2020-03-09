@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./types",
+    "declarationMap": true,
+    "outDir": "./lib",
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["./*"]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "**/__snapshots__",
+    "**/__tests__",
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "include": ["**/*.ts", "**/*.tsx"]
+}
