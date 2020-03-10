@@ -1,5 +1,5 @@
-import { small } from '@icehunter/small-package';
+import { SmallComponent } from '@icehunter/small-package';
 
-const Home = () => <pre>{small()}</pre>;
+const Home = () => <SmallComponent />;
 
 export default Home;

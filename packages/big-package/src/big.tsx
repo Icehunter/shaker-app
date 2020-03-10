@@ -1,4 +1,17 @@
-export const big = (): string => {
+import { TextField, makeStyles } from '@material-ui/core';
+
+import React from 'react';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+      width: 200
+    }
+  }
+}));
+
+const bigText = (): string => {
   return [
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id eros ut ex lobortis ultricies sed nec ipsum. Phasellus nec sagittis arcu, in placerat magna. Proin nec gravida quam, sed facilisis mauris. Donec ut lectus non nunc pulvinar tempus. In hac habitasse platea dictumst. Curabitur pretium, est sagittis laoreet sagittis.',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id eros ut ex lobortis ultricies sed nec ipsum. Phasellus nec sagittis arcu, in placerat magna. Proin nec gravida quam, sed facilisis mauris. Donec ut lectus non nunc pulvinar tempus. In hac habitasse platea dictumst. Curabitur pretium, est sagittis laoreet sagittis.',
@@ -1003,4 +1016,14 @@ export const big = (): string => {
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id eros ut ex lobortis ultricies sed nec ipsum. Phasellus nec sagittis arcu, in placerat magna. Proin nec gravida quam, sed facilisis mauris. Donec ut lectus non nunc pulvinar tempus. In hac habitasse platea dictumst. Curabitur pretium, est sagittis laoreet sagittis.',
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id eros ut ex lobortis ultricies sed nec ipsum. Phasellus nec sagittis arcu, in placerat magna. Proin nec gravida quam, sed facilisis mauris. Donec ut lectus non nunc pulvinar tempus. In hac habitasse platea dictumst. Curabitur pretium, est sagittis laoreet sagittis.'
   ].join(' ');
+};
+
+export const BigComponent = () => {
+  const classes = useStyles();
+
+  return (
+    <form className={classes.root} noValidate autoComplete='off'>
+      <TextField id='standard-multiline-static' label='Multiline' multiline rows='4' defaultValue={bigText()} />
+    </form>
+  );
 };

@@ -5,11 +5,11 @@
   "scripts": {
     "analyze": "ANALYZE=true npm run build",
     "dev": "next dev",
-    "dev:analyze": "ANALYZE=true next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.5",
     "@next/bundle-analyzer": "^9.2.2",
     "next": "9.2.2",
     "next-transpile-modules": "^3.0.2",

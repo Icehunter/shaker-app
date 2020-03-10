@@ -2,40 +2,67 @@
   "name": "@icehunter/small-package",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
+  "main": "lib/index.js",
+  "browser": "lib/umd/icehunter-small-package.min.js",
+  "module": "lib/esm/index.js",
   "types": "lib/index.d.ts",
   "directories": {
-    "types": "types",
-    "dist": "dist",
     "lib": "lib",
     "src": "src"
   },
   "files": [
-    "types",
     "lib",
-    "dist",
     "src"
   ],
   "sideEffects": false,
   "scripts": {
-    "build": "rimraf lib types && yarn build:ts && yarn build:types && rollup -c",
+    "build": "rimraf lib ts-build types && yarn build:ts && yarn build:types && yarn build:cjs && yarn build:esm && yarn build:es && yarn build:rollup && yarn build:umd",
     "build:ts": "tsc",
-    "build:types": "dts-bundle --name @icehunter/big-package --main types/index.d.ts --out ../lib/index.d.ts"
+    "build:types": "dts-bundle --name @icehunter/small-package --main types/index.d.ts --out ../lib/index.d.ts",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --out-dir ./lib --extensions '.ts,.tsx'",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --out-dir ./lib/esm --extensions '.ts,.tsx'",
+    "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel ./src --out-dir ./lib/es --extensions '.ts,.tsx'",
+    "build:rollup": "cross-env NODE_ENV=production BABEL_ENV=rollup rollup -c",
+    "build:umd": "cross-env BABEL_ENV=production-umd rollup -c"
   },
   "author": "Ryan Wilson <syndicated.life@gmail.com> (https://syndicated.life/)",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
+    "@babel/plugin-transform-react-constant-elements": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/plugin-transform-typescript": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@material-ui/core": "^4.9.5",
+    "acorn-jsx": "^5.2.0",
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "babel-plugin-transform-dev-warning": "^0.1.1",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "cross-env": "^7.0.2",
     "dts-bundle": "^0.7.3",
     "rimraf": "^3.0.2",
-    "rollup": "^2.0.0",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-globals": "^1.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-size-snapshot": "^0.11.0",
+    "rollup-plugin-terser": "^5.1.1",
     "rollup-plugin-typescript": "^1.0.1",
-    "tslib": "^1.11.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "@babel/runtime": "^7.8.7",
     "@icehunter/big-package": "^1.0.0"
+  },
+  "peerDependencies": {
+    "@material-ui/core": "^4.9.5",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
   }
 }

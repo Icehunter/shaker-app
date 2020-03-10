@@ -15,7 +15,7 @@ const compose = (funcs) => {
 };
 
 module.exports = (phase) => {
-  const transpiledModules = ['@icehunter/small-package'];
+  const transpiledModules = [];
 
   const plugins = [
     ANALYZE &&
