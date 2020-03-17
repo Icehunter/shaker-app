@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "lib/index.js",
-  "browser": "lib/umd/icehunter-small-package.min.js",
-  "module": "lib/esm/index.js",
+  "module": "lib/es/index.js",
   "types": "lib/index.d.ts",
   "directories": {
     "lib": "lib",
@@ -38,7 +37,6 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "@babel/preset-typescript": "^7.8.3",
-    "@material-ui/core": "^4.9.5",
     "acorn-jsx": "^5.2.0",
     "babel-plugin-react-remove-properties": "^0.3.0",
     "babel-plugin-transform-dev-warning": "^0.1.1",
